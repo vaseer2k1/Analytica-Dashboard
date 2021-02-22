@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Analytica</title>
+        <!-- plugins:css -->
+        <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+        <!-- endinject -->
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+        <!-- inject:css -->
+        <!-- endinject -->
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- End layout styles -->
+        <link rel="shortcut icon" href="assets/images/favicon.png" />
+
+        <!--Tab Switch Style-->
+
+        <style>
+            * {
+                box-sizing: border-box
+            }
+
+            .mySlides1,
+            .mySlides2 {
+                display: none
+            }
+
+            img {
+                vertical-align: middle;
+            }
+
+            /* Slideshow container */
+
+            .slideshow-container {
+                max-width: 1500px;
+                position: relative;
+                margin: auto;
+            }
+
+            /* Next & previous buttons */
+
+            .prev,
+            .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 16px;
+                margin-top: -22px;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+            }
+
+            /* Position the "next button" to the right */
+
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            /* On hover, add a grey background color */
+
+            .prev:hover,
+            .next:hover {
+                background-color: #f1f1f1;
+                color: black;
+            }
+        </style>
+
+        <script>
+            var slideIndex = [1, 1];
+            var slideId = ["mySlides1", "mySlides2"]
+            showSlides(1, 0);
+            showSlides(1, 1);
+
+            function plusSlides(n, no) {
+                showSlides(slideIndex[no] += n, no);
+            }
+
+            function showSlides(n, no) {
+                var i;
+                var x = document.getElementsByClassName(slideId[no]);
+                if (n > x.length) {
+                    slideIndex[no] = 1
+                }
+                if (n < 1) {
+                    slideIndex[no] = x.length
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[slideIndex[no] - 1].style.display = "block";
+            }
+        </script>
+        <script>
+            var slideIndex = [1, 1];
+            var slideId = ["mySlides1", "mySlides2"]
+            showSlides(1, 0);
+            showSlides(1, 1);
+
+            function plusSlides(n, no) {
+                showSlides(slideIndex[no] += n, no);
+            }
+
+            function showSlides(n, no) {
+                var i;
+                var x = document.getElementsByClassName(slideId[no]);
+                if (n > x.length) {
+                    slideIndex[no] = 1
+                }
+                if (n < 1) {
+                    slideIndex[no] = x.length
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[slideIndex[no] - 1].style.display = "block";
+            }
+
+            plusSlides();
+        </script>
+
+        <!--Tab Switch Style End-->
+
+        <!--Pagination Start-->
+        <style>
+            .pagination {
+                display: inline-block;
+            }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+
+            .pagination a.active {
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 5px;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: #ddd;
+                border-radius: 5px;
+            }
+        </style>
+        <!--PAgination End-->
+
+    </head>
+
+    <body>
+        <div class="container-scroller">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/dashboard/logo.png"
+                            alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+                            alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
+                        data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <div class="search-field d-none d-md-block">
+                        <form class="d-flex align-items-center h-100" action="#">
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-transparent">
+
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item nav-profile dropdown">
+                            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <div class="nav-profile-img">
+                                    <img src="assets/images/faces/face1.jpg" alt="image">
+                                    <span class="availability-status online"></span>
+                                </div>
+                                <div class="nav-profile-text">
+                                    <p class="mb-1 text-black">Vaseer Mohamed</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                            </div>
+                        </li>
+                        <li class="nav-item d-none d-lg-block full-screen-link">
+                            <a class="nav-link">
+                                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+
+
+                            <span class="count-symbol bg-warning"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="messageDropdown">
+                                <h6 class="p-3 mb-0">Messages</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                                    </div>
+                                    <div
+                                        class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                        <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a
+                                            message</h6>
+                                        <p class="text-gray mb-0"> 1 Minutes ago </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic">
+                                    </div>
+                                    <div
+                                        class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                        <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a
+                                            message</h6>
+                                        <p class="text-gray mb-0"> 15 Minutes ago </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="assets/images/faces/face3.jpg" alt="image" class="profile-pic">
+                                    </div>
+                                    <div
+                                        class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                        <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture
+                                            updated</h6>
+                                        <p class="text-gray mb-0"> 18 Minutes ago </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                                data-toggle="dropdown">
+                                <i class="mdi mdi-bell-outline"></i>
+                                <span class="count-symbol bg-danger"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="notificationDropdown">
+                                <h6 class="p-3 mb-0">Notifications</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-success">
+                                            <i class="mdi mdi-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                        <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                                        <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today
+                                        </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-warning">
+                                            <i class="mdi mdi-settings"></i>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                        <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                                        <p class="text-gray ellipsis mb-0"> Update dashboard </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-info">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                        <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                                        <p class="text-gray ellipsis mb-0"> New admin wow! </p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+                            </div>
+                        </li>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- partial:partials/_sidebar.html -->
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <span class="menu-title">Dashboard</span>
+                                <i class="mdi mdi-home menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                                aria-controls="ui-bas ic">
+                                <span class="menu-title">Social Media</span>
+                                <i class="menu-arrow"></i>
+                                <i class="mdi mdi-twitter menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="ui-basic">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="twitter.html">Twitter</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="facebook.html">Facebook</a></li>
+                                    </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Emotion.html">
+                                <span class="menu-title">Emotions</span>
+                                <i class="mdi mdi-emoticon menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Entity.html">
+                                <span class="menu-title">Entity</span>
+                                <i class="mdi mdi-hospital-building menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="topic.html">
+                                <span class="menu-title">Topics</span>
+                                <i class="mdi mdi-information menu-icon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="phoenix.html">
+                                <span class="menu-title">Phoenix Marketcity</span>
+                                <i class="mdi mdi-shopping menu-icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- partial -->
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row" id="proBanner">
+
+                        </div>
+                        <div class="page-header">
+                            <h3 class="page-title">
+                                <!--span class="page-title-icon bg-gradient-primary text-white mr-2">
+                                    <i class="mdi mdi-home"></i-->
+                                </span> Entity </h3>
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        <span></span>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Top Entities</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th> # </th>
+                                                        <th> Entity </th>
+                                                        <th> Total </th>
+                                                        <th> Positive </th>
+                                                        <th> Negative</th>
+                                                        <th> Percent </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td> 1 </td>
+                                                        <td id="entn5"><a href="luxecinemas.html"> luxe Cinemas</a></td>
+                                                        <td id="entt5"> 1350 </td>
+                                                        <td id="entp5"> 274 </td>
+                                                        <td id="entne5"> 522 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 25%"
+                                                                    aria-valuenow="30" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 75%"
+                                                                    aria-valuenow="70" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 2 </td>
+                                                        <td id="entn1"><a href="uber.html"> Uber</a> </td>
+                                                        <td id="entt1"> 609 </td>
+                                                        <td id="entp1"> 21</td>
+                                                        <td id="entne1"> 488</td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 5%"
+                                                                    aria-valuenow="5" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 95%"
+                                                                    aria-valuenow="95" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 3 </td>
+                                                        <td id="entn2"> KFC</td>
+                                                        <td id="entt2"> 579 </td>
+                                                        <td id="entp2"> 397 </td>
+                                                        <td id="entne2"> 291 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 55%"
+                                                                    aria-valuenow="55" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 45%"
+                                                                    aria-valuenow="45" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 4 </td>
+                                                        <td id="entn9"> Big Bazzar </td>
+                                                        <td id="entt9"> 551 </td>
+                                                        <td id="entp9"> 161 </td>
+                                                        <td id="entne9"> 374 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 35%"
+                                                                    aria-valuenow="55" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 75%"
+                                                                    aria-valuenow="45" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> 5 </td>
+                                                        <td id="entn6"> Market 99</td>
+                                                        <td id="entt6"> 380 </td>
+                                                        <td id="entp6"> 136 </td>
+                                                        <td id="entne6"> 86 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 75%"
+                                                                    aria-valuenow="75" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 25%"
+                                                                    aria-valuenow="25" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 6 </td>
+                                                        <td id="entn4"> Max </td>
+                                                        <td id="entt4"> 361 </td>
+                                                        <td id="entp4"> 120 </td>
+                                                        <td id="entne4"> 239 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 40%"
+                                                                    aria-valuenow="40" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 60%"
+                                                                    aria-valuenow="60" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 7 </td>
+                                                        <td id="entn8"> Croma </td>
+                                                        <td id="entt8"> 311 </td>
+                                                        <td id="entp8"> 129 </td>
+                                                        <td id="entne8"> 89 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 65%"
+                                                                    aria-valuenow="65" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 35%"
+                                                                    aria-valuenow="35" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> 8 </td>
+                                                        <td id="entn7"> Trends </td>
+                                                        <td id="entt7"> 223 </td>
+                                                        <td id="entp7"> 135 </td>
+                                                        <td id="entne7"> 64 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 75%"
+                                                                    aria-valuenow="75" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 25%"
+                                                                    aria-valuenow="25" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 9 </td>
+                                                        <td id="entn10"> Reliance Digital </td>
+                                                        <td id="entt10"> 54 </td>
+                                                        <td id="entp10"> 16 </td>
+                                                        <td id="entne10"> 32 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 25%"
+                                                                    aria-valuenow="25" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 75%"
+                                                                    aria-valuenow="75" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 10 </td>
+                                                        <td id="entn3"> Levi's </td id="entn3">
+                                                        <td id="entt3"> 48 </td>
+                                                        <td id="entp3"> 16 </td>
+                                                        <td id="entne3"> 29 </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success"
+                                                                    role="progressbar" style="width: 30%"
+                                                                    aria-valuenow="30" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-gradient-danger"
+                                                                    role="progressbar" style="width: 70%"
+                                                                    aria-valuenow="70" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            <h1>Positive</h1>
+                        </p>
+
+                        <!--Uber Starts-->
+                        <div class="row">
+                            <div class="col-md-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--Slideshow Start-->
+                                        <div class="slideshow-container">
+                                            <div class="mySlides1">
+                                                <!--Table Start-->
+                                                <h1 id="entityname1">Luxe</h1>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="pu11">Vignesh Elangovan
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="pt11">
+                                                                                    Most beautiful interior I have seen in a movie theater.. 
+                                                                                    Visited this place numerous times. See a good 3D movie 
+                                                                                    in Imax to enjoy the fullest of theater experience.. 
+                                                                                </p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="assets/images/like.png" width="2%">
+                                                                        <span id="pl11"
+                                                                            style="padding-right: 10%;">4</span>
+                                                                        <img src="assets/images/comment.png" width="2%">
+                                                                        <span id="pc11"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                        <img src="assets/images/retweet.png"
+                                                                            width="2% "> <span id="pr11"
+                                                                            style="padding-right: 10%;">0</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="pu12">Alamupavithra Baskaran
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="pt12">
+                                                                                    Always the best place watch movies! 
+                                                                                    Amazing sound effects and ambience 👍
+                                                                                     Safe and secure during covid'19 as 
+                                                                                     they are following all the protocols 
+                                                                                     and procedures perfectly!!</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                      <i class="fas fa-chart-bar"></i>
+                                                                          </div>
+                                                                          -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="pl12"
+                                                                            style="padding-right: 10%;">3</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="pc12"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="pr12"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="pu13">Milind Koyande
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="pt13">
+                                                                                    Screen and sounds are really good.
+                                                                                    100% seat filling.Also mandatory mask 
+                                                                                    wearing and temperature check for  visitors 
+                                                                                    also too good.</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                      <i class="fas fa-chart-bar"></i>
+                                                                          </div>
+                                                                          -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="pl13"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="pc13"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="pr13"
+                                                                            style="padding-right: 10%;">0</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="pu14">Suresh kumar
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="pt14"> We already knew the place. Its placed on 
+                                                                                    phoenix mallWe visited last week. Awesome for all 
+                                                                                    movie & rest rooms Neet maintains if will buy 
+                                                                                    the snacks choose large popcorn combo worth one</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                      <i class="fas fa-chart-bar"></i>
+                                                                          </div>
+                                                                          -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="pl14"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="pc14"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="pr14"
+                                                                            style="padding-right: 10%;">0</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!--Table End-->
+                                        </div>
+
+                                        <div class="mySlides1">
+                                            <!--Table Start-->
+                                            <h1 id="entityname2">Uber</h1>
+                                            <div class="table-responsive">
+                                                <table class="table">
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu21">
+                                                                            Darwin
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt21">On time to the mall ..I was
+                                                                                afraid to be late thanks to the uber
+                                                                                driver Ashok. #Uber #phoenixmarketcity</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                  <i class="fas fa-chart-bar"></i>
+                                                                      </div>
+                                                                      -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl21" style="padding-right: 10%;">5</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc21" style="padding-right: 10%;">4</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr21" style="padding-right: 10%;">2</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu22">
+                                                                            Arshad khan
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt22">Had a smooth ride with Uber.
+                                                                                #Uber #phoenixmarketcity</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl22" style="padding-right: 10%;">2</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc22" style="padding-right: 10%;">6</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr22" style="padding-right: 10%;">0</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu23">
+                                                                            Kunal Mishra
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt23">The traffic is soooo heavy. But
+                                                                                the good thing is the driver was
+                                                                                cool..He shared his experiences with
+                                                                                us.#Uber #phoenixmarketcity</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl23" style="padding-right: 10%;">0</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc23" style="padding-right: 10%;">1</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr23" style="padding-right: 10%;">2</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu24">
+                                                                            Kiruthika
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt24">Friends hang out is the best
+                                                                                way to spend the time.heading towards to
+                                                                                the pmcc in Uber.#friendsgang
+                                                                                #wethree #phoenixmarketcity #Uber</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl24" style="padding-right: 10%;">1</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc24" style="padding-right: 10%;">2</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr24" style="padding-right: 10%;">0</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="mySlides1">
+                                            <!--Table Start-->
+                                            <h1 id="entityname2">KFC</h1>
+                                            <div class="table-responsive">
+                                                <table class="table">
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu41">
+                                                                            George T
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt41">They say eat less before you
+                                                                                travel..but when you are in KFC it
+                                                                                doesnt apply.. #blrairport #kfc
+                                                                                #fingerlickingood </p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                  <i class="fas fa-chart-bar"></i>
+                                                                      </div>
+                                                                      -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl41"
+                                                                        style="padding-right: 10%;">23</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc41" style="padding-right: 10%;">4</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr41" style="padding-right: 10%;">1</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu42">
+                                                                            Pavithra Menon
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt42">Aaaanh ... my stomach is fulll
+                                                                                .Had a greattt meal in KFC. #pmcc
+                                                                                #kfc #chennaidays #chennaidairies
+                                                                            </p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl42"
+                                                                        style="padding-right: 10%;">16</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc42" style="padding-right: 10%;">5</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr42" style="padding-right: 10%;">4</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu43">
+                                                                            Siva Shankar
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt43">The counter boy in KFC...soo
+                                                                                fast in servicing ...hats off man. #kfc
+                                                                                #phoenix #journey</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl43"
+                                                                        style="padding-right: 10%;">14</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc43" style="padding-right: 10%;">2</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr43" style="padding-right: 10%;">5</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu44">
+                                                                            Ravi Rahul
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt44">The Bucket chicken my favourite
+                                                                                ...@mall...#kfc #phoenix</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl44"
+                                                                        style="padding-right: 10%;">18</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc44" style="padding-right: 10%;">5</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr44" style="padding-right: 10%;">1</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="mySlides1">
+                                            <!--Table Start-->
+                                            <h1 id="entityname3">Big Bazzar</h1>
+                                            <div class="table-responsive">
+                                                <table class="table">
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu31">
+                                                                            sohl gera
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt31">One of the best place to visit in Phoenix Mall..
+                                                                                good collection of items.. Pricing is much better compared 
+                                                                                to other stores.. Place is neat and clean.
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                  <i class="fas fa-chart-bar"></i>
+                                                                      </div>
+                                                                      -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl31"
+                                                                        style="padding-right: 10%;">12</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc31" style="padding-right: 10%;">4</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr31" style="padding-right: 10%;">3</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu32">
+                                                                            Lokesh GP
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt32"> This place is good and neat and clean and the 
+                                                                                stuffs are more it have good collection of clothes for 
+                                                                                men's women's kids boys and girls must surely visit the 
+                                                                                staff are very friendly and don make you Wait
+                                                                            #phoenixmarketcity #bigbazzar</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl32" style="padding-right: 10%;">8</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc32" style="padding-right: 10%;">5</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr32" style="padding-right: 10%;">1</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu33">
+                                                                            Geetha Maran
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt33">If you are great fan of BB please visit 
+                                                                                after weeks. No new stocks available. But one of 
+                                                                                the best place in phoenix
+                                                                                #phoenixmarketcity #bigbazzar</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl33" style="padding-right: 10%;">6</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc33" style="padding-right: 10%;">0</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr33" style="padding-right: 10%;">1</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="pu34">
+                                                                            Balaji AC
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="pt34">Wide variety of all items like clothing, 
+                                                                                provisions, fruits and vegetables available in one place.
+                                                                                 Perfect and affordable place. Happy to shop in fbb
+                                                                                #phoenixmarketcity #bigbazzar</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="pl34" style="padding-right: 10%;">4</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="pc34" style="padding-right: 10%;">2</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="pr34" style="padding-right: 10%;">0</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    <!--Table End-->
+                                    </div>
+
+                                    <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+                                </div>
+                                <!--Slideshow End-->
+                            </div>
+                        </div>
+
+                        <p>
+                            <h1>Negative</h1>
+                        </p>
+                        <div class="row">
+                            <div class="col-md-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!--Slideshow Start-->
+                                        <div class="slideshow-container">
+                                            <div class="mySlides2">
+                                                <!--Table Start-->
+                                                <h1 id="entityname1">Luxe Cinemas</h1>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu11">Abhisek Jain
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt11">There is no social distancing and not following any 
+                                                                                    government rules which has to be followed in theatres. After
+                                                                                     informing the staffs, even thought they didn't take actions.
+                                                                                      Most of the people in the theatre are sitting next to next 
+                                                                                      and not wearing mask. Very disappointed. I'm going to raise 
+                                                                                      a complaint in the court regarding this with evidence.
+                                                                                      #covid19 #nosocialdistancing</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                      <i class="fas fa-chart-bar"></i>
+                                                                          </div>
+                                                                          -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl11"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc11"
+                                                                            style="padding-right: 10%;">4</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr11"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu12">BulletRaja
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt12">Theatre is good. But, finding it in the mall 
+                                                                                    is not easy. Maps shows 2 entry points and the 
+                                                                                    directions with sign boards aren't displayed anywhere. 
+                                                                                    Feels like a maze within a maze!</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                        <i class="fas fa-chart-bar"></i>
+                                                                            </div>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl12"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc12"
+                                                                            style="padding-right: 10%;">4</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr12"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu13">Intolerant Tripathi
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt13">My previous experience was very poor 
+                                                                                    In Jazz because my eatables was taken away by rats. 
+                                                                                    When I informed customer service people they were 
+                                                                                    very casual and said sir we are trying to control 
+                                                                                    rats coming in but we couldn't, So I'm not sure whether 
+                                                                                    they have controlled now.In this situation its better to say away.</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                        <i class="fas fa-chart-bar"></i>
+                                                                            </div>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl13"
+                                                                            style="padding-right: 10%;">4</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc13"
+                                                                            style="padding-right: 10%;">6</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr13"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu14">Gopalakrishnan
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt14">Movie (kalathil santhipom) was playing
+                                                                                     without a sync between voice and video. Hope they 
+                                                                                     should have corrected now. Movie ticket Concession 
+                                                                                     on parking was not there #notworth</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                        <i class="fas fa-chart-bar"></i>
+                                                                            </div>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl14"
+                                                                            style="padding-right: 10%;">3</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc14"
+                                                                            style="padding-right: 10%;">4</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr14"
+                                                                            style="padding-right: 10%;">0</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="mySlides2">
+                                                <!--Table Start-->
+                                                <h1 id="entityname2">Uber</h1>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu21">arunavrath
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt21"> #worst #notworth #waste this is the
+                                                                                    2nd time in 2 months I am
+                                                                                    experiencing total disruption of
+                                                                                    service from #uber from the
+                                                                                    #blrairport.No service but you
+                                                                                    accept the bookings.Walk 15 minutes
+                                                                                    with all the luggage to U zone to be
+                                                                                    told there is no service.</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                      <i class="fas fa-chart-bar"></i>
+                                                                          </div>
+                                                                          -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl21"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc21"
+                                                                            style="padding-right: 10%;">8</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr21"
+                                                                            style="padding-right: 10%;">0</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu22">parthachauhan
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt22">@Uber_India @Uber I took a
+                                                                                    ride from #pheonix to my home .
+                                                                                    The driver took a non- tolled road
+                                                                                    and yet #Uber charged toll .
+                                                                                    #Uberchennai and #UberSupport has been
+                                                                                    of no help . #UberCheats</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                        <i class="fas fa-chart-bar"></i>
+                                                                            </div>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl22"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc22"
+                                                                            style="padding-right: 10%;">5</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr22"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu23">Rahul Mehra
+                                                                            </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt23">Wasted One hour and five
+                                                                                    minutes to get a cab at #pmcc 18
+                                                                                    rides cancelled by drivers Request
+                                                                                    for some professional service @Uber
+                                                                                    @Uber_Support</p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                        <i class="fas fa-chart-bar"></i>
+                                                                            </div>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl23"
+                                                                            style="padding-right: 10%;">8</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc23"
+                                                                            style="padding-right: 10%;">1</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr23"
+                                                                            style="padding-right: 10%;">3</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                            <tr>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="h2 font-weight-bold mb-0"
+                                                                                id="nu24"> Dirk Lewis </h5><br>
+                                                                            <span
+                                                                                class="card-title text-uppercase text-muted mb-0">
+                                                                                <p id="nt24">@Uberwhy have you hired
+                                                                                    monkeys at #pmcc. Chaos and they
+                                                                                    have no clue in hell about how to
+                                                                                    speed up boarding. People are
+                                                                                    breaking the line, it's a mess. #Sad
+                                                                                </p>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <!-- #region 
+                                                                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                        <i class="fas fa-chart-bar"></i>
+                                                                            </div>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                                                        <img src="./assets/images/like.png" width="2%">
+                                                                        <span id="nl24"
+                                                                            style="padding-right: 10%;">4</span>
+                                                                        <img src="./assets/images/comment.png"
+                                                                            width="2%"> <span id="nc24"
+                                                                            style="padding-right: 10%;">2</span>
+                                                                        <img src="./assets/images/retweet.png"
+                                                                            width="2%"> <span id="nr24"
+                                                                            style="padding-right: 10%;">0</span>
+                                                                    </p>
+                                                                </div>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!--Table End-->
+                                        </div>
+                                        <div class="mySlides2">
+                                            <!--Table Start-->
+                                            <h1 id="entityname1">KFC</h1>
+                                            <div class="table-responsive">
+                                                <table class="table">
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="nu41">
+                                                                            kamakhya singh
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="nt41">Bigger line but one cashier to
+                                                                                handle these many at @kfc counter than
+                                                                                any boarding gate at #bengaluruairport
+                                                                                but #pathetic #waiting #shortstaff
+                                                                                #poorcustomerservice #hungrymornings
+                                                                                #mismanagement KFC India to seriously
+                                                                                monitor this things. Don’t take customer
+                                                                                for granted #wakeup</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                  <i class="fas fa-chart-bar"></i>
+                                                                      </div>
+                                                                      -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="nl41" style="padding-right: 10%;">5</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="nc41" style="padding-right: 10%;">0</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="nr41" style="padding-right: 10%;">2</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="nu42">
+                                                                            Manish Paulo Miranda
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="nt42">#phoenixmarketcity #kfcinindia Bought
+                                                                                8 meals at KFC near gate 30,in the meal
+                                                                                no options of choosing water ,Pepsi
+                                                                                served with out lids and straws ,it’s a
+                                                                                travel service and QSR,how do u expect
+                                                                                the customer to hold the cup and drink
+                                                                                at a airport?</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="nl42" style="padding-right: 10%;">3</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="nc42" style="padding-right: 10%;">2</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="nr42" style="padding-right: 10%;">0</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="nu43">
+                                                                            Satish_Morey
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="nt43">Rice bowl with chicken n
+                                                                                mojito. @kfc @ phoenix chennai: We dont have
+                                                                                mojito can I give u a Pepsi No I dont
+                                                                                want to drink Pepsi Can I give you
+                                                                                Berger combo? Me :I didn't come here to
+                                                                                eat what you order for me. Get lost,
+                                                                                KFC. Do you train them that way or u r
+                                                                                just good at recruiting.</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="nl43" style="padding-right: 10%;">4</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="nc43" style="padding-right: 10%;">0</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="nr43" style="padding-right: 10%;">1</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <h5 class="h2 font-weight-bold mb-0" id="nu44">
+                                                                            vikas
+                                                                        </h5><br>
+                                                                        <span
+                                                                            class="card-title text-uppercase text-muted mb-0">
+                                                                            <p id="nt44">@KFC_India one of the worst
+                                                                                burgers ever eaten at KFC outlet in
+                                                                                Phoenixmarketcitychennai. I expect better
+                                                                                standards. The burger was not even hot.
+                                                                                Waste of money :(</p>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- #region 
+                                                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                                    <i class="fas fa-chart-bar"></i>
+                                                                        </div>
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                                <p class="mt-3 mb-0 text-muted text-sm">
+                                                                    <img src="./assets/images/like.png" width="2%">
+                                                                    <span id="nl44" style="padding-right: 10%;">2</span>
+                                                                    <img src="./assets/images/comment.png" width="2%">
+                                                                    <span id="nc44" style="padding-right: 10%;">1</span>
+                                                                    <img src="./assets/images/retweet.png" width="2%">
+                                                                    <span id="nr44" style="padding-right: 10%;">1</span>
+                                                                </p>
+                                                            </div>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>  
+                                        <!--Table End-->
+                                    </div>
+
+                                    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+
+                                </div>
+                                <!--Slideshow End-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Uber Ends-->
+
+        </div>
+        </div>
+        </div>
+        <!-- content-wrapper ends -->
+
+
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021
+                    Phoenix.</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
+                        class="mdi mdi-heart text-danger"></i></span>
+            </div>
+        </footer>
+        <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="assets/vendors/chart.js/Chart.min.js"></script>
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="assets/js/off-canvas.js"></script>
+        <script src="assets/js/hoverable-collapse.js"></script>
+        <script src="assets/js/misc.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page -->
+        <script src="assets/js/dashboard.js"></script>
+        <script src="assets/js/todolist.js"></script>
+        <!-- End custom js for this page -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="assets/js/apexchart.js"></script>
+        <script src="assets/js/entity.js"></script>
+
+
+        <script src="assets/js/emotion.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/entity.js"></script>
+        <script src="assets/js/insights.js"></script>
+    </body>
+
+</html>
